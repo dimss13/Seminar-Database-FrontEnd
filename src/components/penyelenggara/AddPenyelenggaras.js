@@ -1,79 +1,66 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const EditPembicara = () => {
-  const [namaPembicara, setNama] = useState("");
-  const [topic, setTopic] = useState("");
-  const [emailPembicara, setEmail] = useState("");
+const AddPenyelenggara = () => {
+  const [namaPenyelenggara, setNama] = useState("");
+  const [alamatPenyelenggara, setAlamat] = useState("");
+  const [emailPenyelenggara, setEmail] = useState("");
   const [idAcaraSeminar, setIDAcaraSeminar] = useState("");
   const navigate = useNavigate();
-  const { id } = useParams();
 
-  useEffect(() => {
-    getPembicaraByID();
-  }, []);
-
-  const updatePembicara = async (e) => {
+  const saveUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`https://seminar-backend-database-production.up.railway.app/pembicara/${id}`, {
-        namaPembicara,
-        topic,
-        emailPembicara,
+      await axios.post("https://seminar-backend-database-production.up.railway.app/penyelenggara", {
+        namaPenyelenggara,
+        alamatPenyelenggara,
+        emailPenyelenggara,
         idAcaraSeminar
       });
-      navigate("/pembicara");
+      navigate("/penyelenggara");
     } catch (error) {
       console.log(error);
     }
   };
 
-  const getPembicaraByID = async () => {
-    const response = await axios.get(`https://seminar-backend-database-production.up.railway.app/pembicara/${id}`);
-    setNama(response.data.data.namaPembicara);
-    setTopic(response.data.data.topic);
-    setEmail(response.data.data.emailPembicara);
-    setIDAcaraSeminar(response.data.data.idAcaraSeminar);
-  };
-
   return (
     <div className="columns mt-5 is-centered">
       <div className="column is-half">
-        <form onSubmit={updatePembicara}>
+        <form onSubmit={saveUser}>
           <div className="field">
-            <label className="label">namaPembicara</label>
+            <label className="label">namaPenyelenggara</label>
             <div className="control">
               <input
                 type="text"
                 className="input"
-                value={namaPembicara}
+                value={namaPenyelenggara}
                 onChange={(e) => setNama(e.target.value)}
-                placeholder="namaPembicara"
+                placeholder="namaPenyelenggara"
               />
             </div>
           </div>
           <div className="field">
-            <label className="label">topic</label>
+            <label className="label">alamatPenyelenggara</label>
             <div className="control">
               <input
                 type="text"
                 className="input"
-                value={topic}
-                onChange={(e) => setTopic(e.target.value)}
-                placeholder="topic"
+                value={alamatPenyelenggara}
+                onChange={(e) => setAlamat(e.target.value)}
+                placeholder="alamatPenyelenggara"
               />
             </div>
           </div>
           <div className="field">
-            <label className="label">emailPembicara</label>
+            <label className="label">emailPenyelenggara</label>
             <div className="control">
             <input
                 type="text"
                 className="input"
-                value={emailPembicara}
+                value={emailPenyelenggara}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="emailPembicara"
+                placeholder="emailPenyelenggara"
               />
             </div>
           </div>
@@ -89,11 +76,11 @@ const EditPembicara = () => {
                 placeholder="idAcaraSeminar"
               />
             </div>
-          </div>        
+          </div>
 
           <div className="field">
             <button type="submit" className="button is-success">
-              Update
+              Save
             </button>
           </div>
         </form>
@@ -102,4 +89,4 @@ const EditPembicara = () => {
   );
 };
 
-export default EditPembicara;
+export default AddPenyelenggara;

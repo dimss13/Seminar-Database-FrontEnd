@@ -2,78 +2,78 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-const EditPembicara = () => {
-  const [namaPembicara, setNama] = useState("");
-  const [topic, setTopic] = useState("");
-  const [emailPembicara, setEmail] = useState("");
+const EditPendaftaran = () => {
+  const [tanggalPendaftaran, setTanggal] = useState("");
+  const [statusPembayaraan, setStatusPembayaran] = useState("");
+  const [idPengguna, setIDPengguna] = useState("");
   const [idAcaraSeminar, setIDAcaraSeminar] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
-    getPembicaraByID();
+    getPendaftaranByID();
   }, []);
 
-  const updatePembicara = async (e) => {
+  const updatePendaftaran = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`https://seminar-backend-database-production.up.railway.app/pembicara/${id}`, {
-        namaPembicara,
-        topic,
-        emailPembicara,
+      await axios.patch(`https://seminar-backend-database-production.up.railway.app/pendaftaran/${id}`, {
+        tanggalPendaftaran,
+        statusPembayaraan,
+        idPengguna,
         idAcaraSeminar
       });
-      navigate("/pembicara");
+      navigate("/pendaftaran");
     } catch (error) {
       console.log(error);
     }
   };
 
-  const getPembicaraByID = async () => {
-    const response = await axios.get(`https://seminar-backend-database-production.up.railway.app/pembicara/${id}`);
-    setNama(response.data.data.namaPembicara);
-    setTopic(response.data.data.topic);
-    setEmail(response.data.data.emailPembicara);
+  const getPendaftaranByID = async () => {
+    const response = await axios.get(`https://seminar-backend-database-production.up.railway.app/pendaftaran/${id}`);
+    setTanggal(response.data.data.tanggalPendaftaran);
+    setStatusPembayaran(response.data.data.statusPembayaraan);
+    setIDPengguna(response.data.data.idPengguna);
     setIDAcaraSeminar(response.data.data.idAcaraSeminar);
   };
 
   return (
     <div className="columns mt-5 is-centered">
       <div className="column is-half">
-        <form onSubmit={updatePembicara}>
+        <form onSubmit={updatePendaftaran}>
           <div className="field">
-            <label className="label">namaPembicara</label>
+            <label className="label">tanggalPendaftaran</label>
             <div className="control">
               <input
                 type="text"
                 className="input"
-                value={namaPembicara}
-                onChange={(e) => setNama(e.target.value)}
-                placeholder="namaPembicara"
+                value={tanggalPendaftaran}
+                onChange={(e) => setTanggal(e.target.value)}
+                placeholder="taggalPendaftaran"
               />
             </div>
           </div>
           <div className="field">
-            <label className="label">topic</label>
+            <label className="label">statusPembayaraan</label>
             <div className="control">
               <input
                 type="text"
                 className="input"
-                value={topic}
-                onChange={(e) => setTopic(e.target.value)}
-                placeholder="topic"
+                value={statusPembayaraan}
+                onChange={(e) => setStatusPembayaran(e.target.value)}
+                placeholder="statusPembayaraan"
               />
             </div>
           </div>
           <div className="field">
-            <label className="label">emailPembicara</label>
+            <label className="label">idPengguna</label>
             <div className="control">
             <input
                 type="text"
                 className="input"
-                value={emailPembicara}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="emailPembicara"
+                value={idPengguna}
+                onChange={(e) => setIDPengguna(e.target.value)}
+                placeholder="idPengguna"
               />
             </div>
           </div>
@@ -89,7 +89,7 @@ const EditPembicara = () => {
                 placeholder="idAcaraSeminar"
               />
             </div>
-          </div>        
+          </div>
 
           <div className="field">
             <button type="submit" className="button is-success">
@@ -102,4 +102,4 @@ const EditPembicara = () => {
   );
 };
 
-export default EditPembicara;
+export default EditPendaftaran;

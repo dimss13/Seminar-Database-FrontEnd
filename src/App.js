@@ -21,6 +21,21 @@ import PembicarasLists from "./components/pembicara/PembicarasLists.js";
 import AddPembicara from "./components/pembicara/AddPembicaras.js";
 import EditPembicara from "./components/pembicara/EditPembicaras.js";
 
+// Pendafataran
+import PendaftaransLists from "./components/pendaftaran/PendaftaransLists.js";
+import AddPendaftaran from "./components/pendaftaran/AddPendaftarans.js";
+import EditPendaftaran from "./components/pendaftaran/EditPendaftarans.js";
+
+// Penyelenggara
+import PenyelenggarasLists from "./components/penyelenggara/PenyelenggarasLists.js";
+import AddPenyelenggara from "./components/penyelenggara/AddPenyelenggaras.js";
+import EditPenyelenggara from "./components/penyelenggara/EditPenyelenggaras.js";
+
+// Tempat Duduk
+import TempatDudukLists from "./components/tempatduduk/TempatDuduksLists.js";
+import AddTempatDuduk from "./components/tempatduduk/AddTempatDuduks.js";
+import EditTempatDuduk from "./components/tempatduduk/EditTempatDuduks.js";
+
 function App() {
   return (
     <BrowserRouter>
@@ -46,6 +61,21 @@ function App() {
         <Route path="/pembicara" element={<PembicarasLists/>}/>
         <Route path="pembicara/add" element={<AddPembicara/>}/>
         <Route path="pembicara/edit/:id" element={<EditPembicara/>}/>
+
+        {/* Pendaftaran */}
+        <Route path="/pendaftaran" element={<PendaftaransLists/>}/>
+        <Route path="pendaftaran/add" element={<AddPendaftaran/>}/>
+        <Route path="pendaftaran/edit/:id" element={<EditPendaftaran/>}/>
+
+        {/* Penyelenggara */}
+        <Route path="/penyelenggara" element={<PenyelenggarasLists/>}/>
+        <Route path="penyelenggara/add" element={<AddPenyelenggara/>}/>
+        <Route path="penyelenggara/edit/:id" element={<EditPenyelenggara/>}/>
+
+        {/* Tempat Duduk */}
+        <Route path="/tempatduduk" element={<TempatDudukLists/>}/>
+        <Route path="tempatduduk/add" element={<AddTempatDuduk/>}/>
+        <Route path="tempatduduk/edit/:id" element={<EditTempatDuduk/>}/>
 
       </Routes>
     </BrowserRouter>

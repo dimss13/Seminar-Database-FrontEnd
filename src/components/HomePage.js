@@ -11,10 +11,10 @@ const HomePage = () => {
       <div style={{position:'relative', display:'flex', justifyContent:'center', top:'2em'}}>
         <Link to={'pengguna'} className='button is-success' style={{margin:'10px'}}>Pengguna</Link>
         <Link to={'acaraseminar'} className='button is-success' style={{margin:'10px'}}>Acara Seminar</Link>
-        <Link to={'pengguna'} className='button is-success' style={{margin:'10px'}}>Penyelenggara</Link>
-        <Link to={'pengguna'} className='button is-success' style={{margin:'10px'}}>Pendaftaran</Link>
+        <Link to={'penyelenggara'} className='button is-success' style={{margin:'10px'}}>Penyelenggara</Link>
+        <Link to={'pendaftaran'} className='button is-success' style={{margin:'10px'}}>Pendaftaran</Link>
         <Link to={'pembayaran'} className='button is-success' style={{margin:'10px'}}>Pembayaran</Link>
-        <Link to={'pengguna'} className='button is-success' style={{margin:'10px'}}>Tempat Duduk</Link>
+        <Link to={'tempatduduk'} className='button is-success' style={{margin:'10px'}}>Tempat Duduk</Link>
         <Link to={'pembicara'} className='button is-success' style={{margin:'10px'}}>Pembicara</Link>
 
       </div>

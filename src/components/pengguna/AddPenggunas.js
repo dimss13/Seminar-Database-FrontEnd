@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const AddUser = () => {
+const AddPenggunas = () => {
   const [namaPengguna, setNama] = useState("");
   const [email, setEmail] = useState("");
   const [noTelp, setNoTelp] = useState("");
   const navigate = useNavigate();
 
-  const saveUser = async (e) => {
+  const savePenggunas = async (e) => {
     e.preventDefault();
     try {
       await axios.post("https://seminar-backend-database-production.up.railway.app/pengguna", {
@@ -25,7 +25,7 @@ const AddUser = () => {
   return (
     <div className="columns mt-5 is-centered">
       <div className="column is-half">
-        <form onSubmit={saveUser}>
+        <form onSubmit={savePenggunas}>
           <div className="field">
             <label className="label">Name</label>
             <div className="control">
@@ -73,4 +73,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default AddPenggunas;
