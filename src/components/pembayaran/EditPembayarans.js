@@ -29,9 +29,9 @@ const EditPembayaran = () => {
 
   const getPembayaranByID = async () => {
     const response = await axios.get(`https://seminar-backend-database-production.up.railway.app/pembayaran/${id}`);
-    setTanggal(response.data.tanggalPembayaran);
-    setMetodePembayaran(response.data.metodePembayaran);
-    setIDPendaftaran(response.data.idPendaftaran);
+    setTanggal(response.data.data.tanggalPembayaran);
+    setMetodePembayaran(response.data.data.metodePembayaran);
+    setIDPendaftaran(response.data.data.idPendaftaran);
   };
 
   return (

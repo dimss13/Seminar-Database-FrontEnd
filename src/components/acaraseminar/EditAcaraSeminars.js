@@ -31,10 +31,10 @@ const EditAcaraSeminar = () => {
 
   const getUserById = async () => {
     const response = await axios.get(`https://seminar-backend-database-production.up.railway.app/acaraseminar/${id}`);
-    setNama(response.data.namaSeminar);
-    setTanggal(response.data.tanggalSeminar);
-    setLokasi(response.data.lokasiSeminar);
-    setHarga(response.data.hargaTiket);
+    setNama(response.data.data.namaSeminar);
+    setTanggal(response.data.data.tanggalSeminar);
+    setLokasi(response.data.data.lokasiSeminar);
+    setHarga(response.data.data.hargaTiket);
   };
 
   return (

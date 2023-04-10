@@ -30,9 +30,9 @@ const EditPembicara = () => {
 
   const getPembicaraByID = async () => {
     const response = await axios.get(`https://seminar-backend-database-production.up.railway.app/pembicara/${id}`);
-    setNama(response.data.namaPembicara);
-    setTopic(response.data.topic);
-    setEmail(response.data.emailPembicara);
+    setNama(response.data.data.namaPembicara);
+    setTopic(response.data.data.topic);
+    setEmail(response.data.data.emailPembicara);
   };
 
   return (

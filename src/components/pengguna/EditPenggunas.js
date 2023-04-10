@@ -29,9 +29,9 @@ const EditUser = () => {
 
   const getUserById = async () => {
     const response = await axios.get(`https://seminar-backend-database-production.up.railway.app/pengguna/${id}`);
-    setNama(response.data.namaPengguna);
-    setEmail(response.data.email);
-    setNoTelp(response.data.noTelp);
+    setNama(response.data.data.namaPengguna);
+    setEmail(response.data.data.email);
+    setNoTelp(response.data.data.noTelp);
   };
 
   return (
