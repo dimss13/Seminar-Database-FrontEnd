@@ -17,7 +17,7 @@ const EditPendaftaran = () => {
   const updatePendaftaran = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`https://seminar-backend-database-production.up.railway.app/pendaftaran/${id}`, {
+      await axios.put(`https://seminar-backend-database-production.up.railway.app/pendaftaran/${id}`, {
         tanggalPendaftaran,
         statusPembayaraan,
         idPengguna,

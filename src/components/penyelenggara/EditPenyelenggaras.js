@@ -17,7 +17,7 @@ const EditPenyelenggara = () => {
   const updatePenyelenggara = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`https://seminar-backend-database-production.up.railway.app/penyelenggara/${id}`, {
+      await axios.put(`https://seminar-backend-database-production.up.railway.app/penyelenggara/${id}`, {
         namaPenyelenggara,
         alamatPenyelenggara,
         emailPenyelenggara,

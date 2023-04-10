@@ -17,7 +17,7 @@ const EditTempatDuduk = () => {
   const updateTempatDuduk = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`https://seminar-backend-database-production.up.railway.app/tempatduduk/${id}`, {
+      await axios.put(`https://seminar-backend-database-production.up.railway.app/tempatduduk/${id}`, {
         nomorKursi,
         statusKursi,
         lokasiKursi,

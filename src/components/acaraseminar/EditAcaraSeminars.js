@@ -17,7 +17,7 @@ const EditAcaraSeminar = () => {
   const updateUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`https://seminar-backend-database-production.up.railway.app/acaraseminar/${id}`, {
+      await axios.put(`https://seminar-backend-database-production.up.railway.app/acaraseminar/${id}`, {
         namaSeminar,
         tanggalSeminar,
         lokasiSeminar,

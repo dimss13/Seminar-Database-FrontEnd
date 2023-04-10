@@ -16,7 +16,7 @@ const EditPembayaran = () => {
   const updatePembayaran = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`https://seminar-backend-database-production.up.railway.app/pembayaran/${id}`, {
+      await axios.put(`https://seminar-backend-database-production.up.railway.app/pembayaran/${id}`, {
         tanggalPembayaran,
         metodePembayaran,
         idPendaftaran,

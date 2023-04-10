@@ -17,7 +17,7 @@ const EditPembicara = () => {
   const updatePembicara = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`https://seminar-backend-database-production.up.railway.app/pembicara/${id}`, {
+      await axios.put(`https://seminar-backend-database-production.up.railway.app/pembicara/${id}`, {
         namaPembicara,
         topic,
         emailPembicara,

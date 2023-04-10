@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-const EditUser = () => {
+const EditPenggunas = () => {
   const [namaPengguna, setNama] = useState("");
   const [email, setEmail] = useState("");
   const [noTelp, setNoTelp] = useState("");
@@ -10,13 +10,13 @@ const EditUser = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    getUserById();
+    getPenggunaByID();
   }, []);
 
-  const updateUser = async (e) => {
+  const updatePengguna = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`https://seminar-backend-database-production.up.railway.app/pengguna/${id}`, {
+      await axios.put(`https://seminar-backend-database-production.up.railway.app/pengguna/${id}`, {
         namaPengguna,
         email,
         noTelp,
@@ -27,7 +27,7 @@ const EditUser = () => {
     }
   };
 
-  const getUserById = async () => {
+  const getPenggunaByID = async () => {
     const response = await axios.get(`https://seminar-backend-database-production.up.railway.app/pengguna/${id}`);
     setNama(response.data.data.namaPengguna);
     setEmail(response.data.data.email);
@@ -37,7 +37,7 @@ const EditUser = () => {
   return (
     <div className="columns mt-5 is-centered">
       <div className="column is-half">
-        <form onSubmit={updateUser}>
+        <form onSubmit={updatePengguna}>
           <div className="field">
             <label className="label">Name</label>
             <div className="control">
@@ -85,4 +85,4 @@ const EditUser = () => {
   );
 };
 
-export default EditUser;
+export default EditPenggunas;
